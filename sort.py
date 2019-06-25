@@ -4,23 +4,10 @@ import random
 from multiprocessing import Process, Manager
 
 
-local_arrs=4
+local_arrs=10
 local_threads=local_arrs#za vseki slu4ai
-arr_size=10000000
+arr_size=10
 
-
-class myThread (threading.Thread):
-    def __init__(self, threadID, name, counter,arr):
-        threading.Thread.__init__(self)
-        self.threadID = threadID
-        self.name = name
-        self.counter = counter
-        self.arr=arr
-    def run(self):
-        print ("Starting " + self.name)
-        msort(self.arr)
-
-        print ("Exiting " + self.name)
 
 
 def msort(arr,shared_list):
@@ -40,16 +27,12 @@ def msort(arr,shared_list):
 #    for i in range(local_arrs):
 #        threads[i].join()
 
-def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
-    processes=[]
-
-    manager=Manager()
-    shared_list=manager.list()
+def run_local(local_arrs,arrs,processes):#podava se celiq dvumeren!!!
 
 
-    for i in range(local_arrs):
-        process = Process(target=msort, args=(arrs[i],shared_list))
-        processes.append(process)
+
+
+
 
 
 
@@ -61,8 +44,7 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
     for process in processes:
         process.join()
     #print("test"+str(shared_list))
-    arrs=shared_list
-    return arrs
+
     #print("test"+str(arrs))
 
 
@@ -76,6 +58,14 @@ for i in range(local_arrs):
     arr=[]
 print("FULL")
 
+manager = Manager()
+shared_list = manager.list()
+
+for i in range(local_arrs):
+    processes = []
+    process = Process(target=msort, args=(arrs[i], shared_list,))
+    processes.append(process)
+
 #print(arrs)
 arrs2=arrs
 start=time.time()
@@ -88,11 +78,11 @@ print("Single CPU:"+str(end-start))
 
 
 start=time.time()
-arrs=run_local(local_arrs,arrs)#podavam dvumerniq!!
+run_local(local_arrs,arrs,processes)#podavam dvumerniq!!
 end=time.time()
-#print(arrs)
+print(shared_list)
 print("Multi proc: "+str(end-start))
-#print(arrs2)
+print(arrs2)
 #start=time.time()
 #for i in range(local_arrs):
  #   arrs2[i].sort()
