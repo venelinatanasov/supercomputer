@@ -1,29 +1,33 @@
 import random
 import pickle
-arr = []
-barr = []
+#arr = []
+#barr = []
+#
+#arr_size = 5
+#local_arrs = 6
 
-arrlen = 200
-arrcount = 50
+#FILE = open('masiv', "w")
 
-FILE = open('masiv', "wb+")
+def genarr(arrs):
+    arr=[]
+    FILE = open('masiv', "wb")
 
-def genarr(arr, barr):
-    for k in range(arrlen):
-        arr.append(random.randint(1, 1000))
+    for i in range(local_arrs):
+       for k in range(arr_size):
+           arr.append(random.randint(0,1000))
+       arrs.append(arr)
+       arr=[]
+    pickle.dump(arr, FILE)
+    FILE.close()
 
-    for j in range(arrcount):
-        barr.append(k)
-
-
-
-genarr(arr, barr)
-print(arr)
-pickle.dump(arr,FILE)
+#arr=[]
+#genarr(arr)
+#print(arr)
+#genarr(arr, barr)
+#print(arr)
 
 #FILE.write(f)
-FILE.close()
 
-print(len(arr))
 
-print("DONE")
+
+
