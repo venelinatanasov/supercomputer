@@ -3,13 +3,13 @@ import pickle
 #arr = []
 #barr = []
 #
-#arr_size = 5
-#local_arrs = 6
+arr_size = 5
+local_arrs = 6
 
 #FILE = open('masiv', "w")
 
-def genarr(arrs):
-
+def genarr(local_arrs, arr_size):
+    arrs=[]
     arr=[]
     FILE = open('masiv', "wb")
 
@@ -18,9 +18,10 @@ def genarr(arrs):
            arr.append(random.randint(0,1000))
        arrs.append(arr)
        arr=[]
-    pickle.dump(arr, FILE)
+    #print(arrs)
+    pickle.dump(arrs, FILE)
     FILE.close()
-
+genarr(local_arrs,arr_size)
 #arr=[]
 #genarr(arr)
 #print(arr)
