@@ -1,6 +1,9 @@
 import pickle
 
-with open('masiv', 'rb') as FILE:
-    masivlist = pickle.load(FILE)
 
-print(masivlist)
+def readarray():
+    arr=[]
+    with open('masiv', 'rb') as FILE:
+        arr = pickle.load(FILE)
+    return arr
+#print(masivlist)

@@ -9,6 +9,7 @@ import pickle
 #FILE = open('masiv', "w")
 
 def genarr(arrs):
+
     arr=[]
     FILE = open('masiv', "wb")
 
