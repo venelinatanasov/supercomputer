@@ -50,7 +50,9 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
     for process in processes:
         process.join()
     #print("test"+str(shared_list))
-    arrs=shared_list.copy()
+    arrs=[]
+
+    #########CONVERT!!!!!!!!!###########
 
     #print("test"+str(arrs))
 
