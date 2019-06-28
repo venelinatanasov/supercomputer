@@ -7,29 +7,16 @@ from GenerateArray import genarr
 
 
 
-#local_arrs=2
-#local_threads=local_arrs#za vseki slu4ai
-#arr_size=10
 
 
 def msort(arr,shared_list):
     arr.sort()
-    #print(arr)
+
     shared_list.append(arr)
 
 
 
-
-#def run_local(local_arrs,arr):#podava se celiq dvumeren!!!
-#    threads=[]
-#    for i in range(local_arrs):
-#        thread = myThread(i,"Thread-"+str(i),i,arr[i])
-#        threads.append(thread)
-#        thread.start()
-#    for i in range(local_arrs):
-#        threads[i].join()
-#
-def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
+def run_local(local_arrs,arrs):
     processes=[]
 
     manager=Manager()
@@ -50,16 +37,12 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
 
     for process in processes:
         process.join()
-    #print("test"+str(shared_list))
-    arrs=[]
-    for i in range(len(shared_list)):
-        arrs.append([])
-        for k in range(len(shared_list[i])):
-            arrs[i].append(shared_list[i][k])
+
+    arrs=shared_list
     return arrs
 
 
-    #print("test"+str(arrs))
+
 
 
 

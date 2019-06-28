@@ -20,7 +20,7 @@ def genarr(local_arrs, arr_size):
        arr=[]
     pickle.dump(arrs, FILE)
     FILE.close()
-    print(arrs)
+    #print(arrs)
 
 #arr=[]
 #genarr(arr)
