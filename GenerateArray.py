@@ -18,8 +18,9 @@ def genarr(local_arrs, arr_size):
            arr.append(random.randint(0,1000))
        arrs.append(arr)
        arr=[]
-    pickle.dump(arr, FILE)
+    pickle.dump(arrs, FILE)
     FILE.close()
+    print(arrs)
 
 #arr=[]
 #genarr(arr)

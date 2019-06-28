@@ -7,9 +7,9 @@ from GenerateArray import genarr
 
 
 
-local_arrs=2
+#local_arrs=2
 #local_threads=local_arrs#za vseki slu4ai
-arr_size=1000000
+#arr_size=10
 
 
 def msort(arr,shared_list):
@@ -36,6 +36,7 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
     shared_list=manager.list()
 
 
+
     for i in range(local_arrs):
         process = Process(target=msort, args=(arrs[i],shared_list))
         processes.append(process)
@@ -51,8 +52,17 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
         process.join()
     #print("test"+str(shared_list))
     arrs=[]
+<<<<<<< HEAD
+    for i in range(len(shared_list)):
+        arrs.append([])
+        for k in range(len(shared_list[i])):
+            arrs[i].append(shared_list[i][k])
+    return arrs
+
+=======
 
     #########CONVERT!!!!!!!!!###########
+>>>>>>> Merge remote-tracking branch 'origin/master'
 
     #print("test"+str(arrs))
 
@@ -79,7 +89,7 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
 
 
 #start=time.time()
-#arrs=run_local(local_arrs,arrs)#podavam dvumerniq!!
+##arrs=run_local(local_arrs,arrs)#podavam dvumerniq!!
 #end=time.time()
 #print(arrs)
 #print("Multi proc: "+str(end-start))
