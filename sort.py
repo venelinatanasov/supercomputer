@@ -52,17 +52,12 @@ def run_local(local_arrs,arrs):#podava se celiq dvumeren!!!
         process.join()
     #print("test"+str(shared_list))
     arrs=[]
-<<<<<<< HEAD
     for i in range(len(shared_list)):
         arrs.append([])
         for k in range(len(shared_list[i])):
             arrs[i].append(shared_list[i][k])
     return arrs
 
-=======
-
-    #########CONVERT!!!!!!!!!###########
->>>>>>> Merge remote-tracking branch 'origin/master'
 
     #print("test"+str(arrs))
 
