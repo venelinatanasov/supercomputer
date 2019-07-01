@@ -6,17 +6,17 @@ from GenerateArray import genarr
 from sort import msort, run_local, msort_single
 from ReadArray import readarray
 
-local_arrs=10
-arr_size=10000
+local_arrs=3
+arr_size=5
 
 def cluster():
-    #genarr(local_arrs,arr_size)
+    genarr(local_arrs,arr_size)
 
     arr=readarray()
     print("1 read")
     arr2=readarray()
     print("2 read")
-
+    #print(arr)
 
     start=time.time()
 
@@ -31,11 +31,13 @@ def cluster():
 
 
     start=time.time()
+
     arr=run_local(local_arrs,arr)
     end=time.time()
 
 
     print("Multi: "+str(end-start))
-
+    print(arr)
+    print(arr2)
 
 cluster()

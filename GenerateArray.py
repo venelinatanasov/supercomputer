@@ -1,24 +1,25 @@
 import random
+import simplejson
 import pickle
 #arr = []
 #barr = []
 #
-arr_size = 500000
-local_arrs = 10
+arr_size = 5
+local_arrs = 3
 
 #FILE = open('masiv', "w")
 
 def genarr(local_arrs, arr_size):
     arrs=[]
     arr=[]
-    FILE = open('masiv', "wb")
+    FILE = open('masiv', "w")
 
     for i in range(local_arrs):
        for k in range(arr_size):
            arr.append(random.randint(0,1000))
        arrs.append(arr)
        arr=[]
-    pickle.dump(arrs, FILE)
+    simplejson.dump(arrs,FILE)
     FILE.close()
     #print(arrs)
 genarr(local_arrs,arr_size)

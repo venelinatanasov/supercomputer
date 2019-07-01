@@ -1,11 +1,12 @@
-import pickle
-
+import simplejson
 
 def readarray():
     arr=[]
-    with open('masiv', 'rb') as FILE:
-        arr = pickle.load(FILE)
+    with open('masiv', 'r') as FILE:
+        arr = simplejson.load(FILE)
 
     return arr
-#print(readarray())
+#arr2=readarray()
+#print(arr2)
+#print(arr2[0])
 #print(masivlist)
