@@ -3,8 +3,8 @@ import pickle
 #arr = []
 #barr = []
 #
-#arr_size = 5
-#local_arrs = 6
+arr_size = 500000
+local_arrs = 10
 
 #FILE = open('masiv', "w")
 
@@ -21,7 +21,7 @@ def genarr(local_arrs, arr_size):
     pickle.dump(arrs, FILE)
     FILE.close()
     #print(arrs)
-
+genarr(local_arrs,arr_size)
 #arr=[]
 #genarr(arr)
 #print(arr)

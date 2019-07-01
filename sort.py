@@ -11,10 +11,23 @@ from GenerateArray import genarr
 
 def msort(arr,shared_list):
     arr.sort()
-
+    random.shuffle(arr)
+    arr.sort()
+    random.shuffle(arr)
+    arr.sort()
+    random.shuffle(arr)
+    arr.sort()
     shared_list.append(arr)
 
-
+def msort_single(arr):
+    arr.sort()
+    random.shuffle(arr)
+    arr.sort()
+    random.shuffle(arr)
+    arr.sort()
+    random.shuffle(arr)
+    arr.sort()
+    #shared_list.append(arr)
 
 def run_local(local_arrs,arrs):
     processes=[]
