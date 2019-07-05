@@ -29,7 +29,7 @@ def msort_single(arr):
     arr.sort()
     #shared_list.append(arr)
 
-def run_local(local_arrs,arrs):
+def run_local_sort(local_arrs,arrs):
     processes=[]
 
     manager=Manager()

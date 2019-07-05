@@ -3,13 +3,13 @@ import random
 import pickle
 from multiprocessing import Process, Manager
 from GenerateArray import genarr
-from sort import msort, run_local, msort_single
+from sort import msort, run_local_sort, msort_single
 from ReadArray import readarray
 
 local_arrs=3
 arr_size=5
 
-def cluster():
+def run_local():
     genarr(local_arrs,arr_size)
 
     arr=readarray()
@@ -32,7 +32,7 @@ def cluster():
 
     start=time.time()
 
-    arr=run_local(local_arrs,arr)
+    arr=run_local_sort(local_arrs,arr)
     end=time.time()
 
 
@@ -40,4 +40,4 @@ def cluster():
     print(arr)
     print(arr2)
 
-cluster()
+run_local()
