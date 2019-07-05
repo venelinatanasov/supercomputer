@@ -2,7 +2,7 @@ import simplejson
 
 def readarray():
     arr=[]
-    with open('masiv', 'r') as FILE:
+    with open('in', 'r') as FILE:
         arr = simplejson.load(FILE)
 
     return arr

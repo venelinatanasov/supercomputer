@@ -12,7 +12,7 @@ local_arrs = 3
 def genarr(local_arrs, arr_size):
     arrs=[]
     arr=[]
-    FILE = open('masiv', "w")
+    FILE = open('in', "w")
 
     for i in range(local_arrs):
        for k in range(arr_size):
